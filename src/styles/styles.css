@@ -1,0 +1,58 @@
+@import './vars.css';
+
+.question {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 116%;
+    color: #C4C4C4;
+}
+
+.option {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 116%;
+    color: #C4C4C4;
+}
+
+.button {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 116%;
+    color: var(--white100);
+    padding-top: 21px;
+    box-sizing: border-box;
+}
+
+.headline {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 116%;
+    color: #C4C4C4;
+}
+
+@media screen and (max-width: vars(--mobile)) {
+    .question {
+        font-size: 16px;
+    }
+
+    .option {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding-top: 16px;
+    }
+
+    .headline {
+        font-size: 32px;
+    }
+}

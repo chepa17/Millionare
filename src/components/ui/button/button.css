@@ -1,0 +1,15 @@
+.button {
+    width: 296px;
+    height: 64px;
+    border-radius: 12px;
+    background-color: var(--orange100);
+    text-align: center;
+}
+
+.button:hover {
+    background-color: var(--orange80);
+}
+
+.button.pressed {
+    background-color: var(--orange120);
+}

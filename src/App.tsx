@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import { Start } from "./components/start/start";
 
-function App() {
+
+export default function BasicExample() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Start />
+          </Route>
+          <Route path="/game">
+            <Game />
+          </Route>
+          <Route path="/over">
+            <Over />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+function Game() {
+  return (
+    <div>
+      <h2>Game</h2>
     </div>
   );
 }
 
-export default App;
+function Over() {
+  return (
+    <div>
+      <h2>Over</h2>
+    </div>
+  );
+}
