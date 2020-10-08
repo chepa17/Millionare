@@ -4,6 +4,12 @@
     border-radius: 12px;
     background-color: var(--orange100);
     text-align: center;
+    cursor: pointer;
+}
+
+.button a{
+    text-decoration: none;
+    color: inherit;
 }
 
 .button:hover {
@@ -12,4 +18,11 @@
 
 .button.pressed {
     background-color: var(--orange120);
+}
+
+@media screen and (max-width: 800px){
+    .button{
+        height: 48px;
+        width: 90%;
+    }
 }

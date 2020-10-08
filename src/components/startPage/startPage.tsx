@@ -1,10 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Button } from "../ui/button/button";
-import './start.css';
+import './startPage.css';
 
-export function Start() {
+export const StartPage : React.FC = () => {
+    const history = useHistory();
+
     const onNextStep = () => {
-        return true
+        history.push('./game')
     }
 
     return(

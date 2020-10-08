@@ -3,7 +3,7 @@ import classNames from "classnames";
 import './button.css';
 type Props = {
     onClick: () => void,
-    children: string ,
+    children: any,
 }
 
 export function Button(props: Props) {

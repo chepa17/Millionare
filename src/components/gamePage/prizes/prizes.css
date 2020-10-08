@@ -1,0 +1,16 @@
+.prizes {
+    width: 376px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .prizes {
+        width: 100%;
+        padding-top: 32px;
+        background-color: #E5E5E5;
+    }
+}

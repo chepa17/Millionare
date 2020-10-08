@@ -1,0 +1,86 @@
+.option-wrapper{
+    position: relative;
+    width: 424px;
+    height: 72px;
+    flex-shrink: 0;
+    margin: 16px 0;
+    touch-action: unset;
+    transition: background-color 0.4s;
+    clip-path: polygon(0 calc(50% - 0.5px), 18px calc(50% - 0.5px), 44px 0, calc(100% - 44px) 0, calc(100% - 18px) calc(50% - 0.5px),  100% calc(50% - 0.5px), 100% calc(50% + 0.5px), calc(100% - 18px) calc(50% + 0.5px), calc(100% - 44px) 100%, 44px 100%, 18px calc(50% + 0.5px), 0 calc(50% + 0.5px));
+}
+
+.option-wrapper .option {
+    width: 387px;
+    height: 70px;
+    padding: 24.5px 32px;  
+    position: absolute;
+    box-sizing: border-box;
+    touch-action: unset;
+    top: 1px;
+    left: 18.5px;
+    transition: background-color 0.4s;
+    clip-path: polygon(0 50%, 26px 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 26px 100%);
+}
+
+.option-wrapper.inactive {
+    background-color: var(--black40);
+    cursor: pointer;
+}
+
+.option-wrapper.inactive .option {
+    background-color: var(--white100);
+}
+
+.option-wrapper.inactive:hover {
+    background-color: var(--orange100);
+}
+
+.option-wrapper.correct {
+    background-color: var(--green100);    
+}
+
+.option-wrapper.correct .option{
+    background-color: var(--green5);    
+}
+
+.option-wrapper.selected {
+    background-color: var(--orange100);    
+}
+
+.option-wrapper.selected .option{
+    background-color: var(--orange5);    
+}
+
+.option-wrapper.wrong {
+    background-color: var(--red100);    
+}
+
+.option-wrapper.wrong .option{
+    background-color: var(--red5);    
+}
+
+.option span {
+    margin-right: 8px;
+    font-weight: 600;
+    color: var(--orange100);
+}
+
+@media screen and (max-width: 800px){
+    .option-wrapper {
+        width: 100%;
+        height: 56px;
+        clip-path: polygon(0 calc(50% - 0.5px), calc(50% - 145px) calc(50% - 0.5px), calc(50% - 125px) 0, calc(50% + 125px) 0, calc(50% + 145px) calc(50% - 0.5px),  100% calc(50% - 0.5px), 100% calc(50% + 0.5px), calc(50% + 145px) calc(50% + 0.5px), calc(50% + 125px) 100%, calc(50% - 125px) 100%, calc(50% - 145px) calc(50% + 0.5px), 0 calc(50% + 0.5px));
+    }
+
+    .option-wrapper .option {
+        width: 288px;
+        height: 54px;
+        padding: 20px 24px;
+        clip-path: polygon(0 50%, 20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%);
+        left: calc(50% - 144px);
+    }
+
+    .option-wrapper.inactive:hover {
+        background-color: var(--black40);
+    }
+}

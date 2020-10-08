@@ -1,44 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import { Start } from "./components/start/start";
+import { StartPage } from "./components/startPage/startPage";
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { ContainerOver } from "./components/gameOverPage/containerOver";
+import { ContainerGame } from "./components/gamePage/containerGame";
 
-
-export default function BasicExample() {
-  return (
-    <Router>
-      <div>
-        <Switch>
-          <Route exact path="/">
-            <Start />
-          </Route>
-          <Route path="/game">
-            <Game />
-          </Route>
-          <Route path="/over">
-            <Over />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+type Action = {
+  type: string;
 }
 
-function Game() {
-  return (
-    <div>
-      <h2>Game</h2>
-    </div>
-  );
-}
+const earnCounting = function (state = 1, action: Action) {
+  switch (action.type) {
+    case "Add": 
+      return state + 1
+    case "Reset": 
+      return 1
+    default:
+      return state;
+  }
+};
 
-function Over() {
+let store = createStore(earnCounting);
+
+export default function App() {
+
   return (
-    <div>
-      <h2>Over</h2>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <StartPage />
+            </Route>
+            <Route path="/game">
+              <ContainerGame/>
+            </Route>
+            <Route path="/over">
+              <ContainerOver />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
 }

@@ -1,0 +1,42 @@
+.game{
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.max-width{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.burger{
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 21px;
+}
+
+@media screen and (max-width: 1440px){
+    .game{
+        left: 0;
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 800px){
+    .game.show-question .prizes{
+        display: none;
+    }
+
+    .burger{
+        display: block;
+    }
+
+    .game.show-prizes .question-field{
+        display: none;
+    }
+}

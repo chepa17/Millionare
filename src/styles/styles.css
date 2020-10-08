@@ -6,7 +6,7 @@
     font-weight: 600;
     font-size: 32px;
     line-height: 116%;
-    color: #C4C4C4;
+    color: var(--black100);
 }
 
 .option {
@@ -15,7 +15,7 @@
     font-weight: normal;
     font-size: 20px;
     line-height: 116%;
-    color: #C4C4C4;
+    color: var(--black100);
 }
 
 .button {
@@ -35,12 +35,13 @@
     font-weight: 600;
     font-size: 56px;
     line-height: 116%;
-    color: #C4C4C4;
+    color: var(--black100);
 }
 
-@media screen and (max-width: vars(--mobile)) {
+@media screen and (max-width: 800px) {
     .question {
         font-size: 16px;
+        text-align: center;
     }
 
     .option {
@@ -54,5 +55,6 @@
 
     .headline {
         font-size: 32px;
+        text-align: center;
     }
 }
