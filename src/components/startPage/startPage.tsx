@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
+import { ROUTES } from "../../types";
 import { Button } from "../ui/button/button";
 import './startPage.css';
 
-export const StartPage : React.FC = () => {
+export const StartPage : React.FC<{}> = () => {
     const history = useHistory();
 
-    const onNextStep = () => {
-        history.push('./game')
-    }
+    const onNextStep = useCallback(() => {
+        history.push(ROUTES.GAME);
+    }, [history]);
 
     return(
         <div className='start'>

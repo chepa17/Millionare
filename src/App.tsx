@@ -9,38 +9,24 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { ContainerOver } from "./components/gameOverPage/containerOver";
 import { ContainerGame } from "./components/gamePage/containerGame";
+import { earnCounting } from "./store";
+import { ROUTES } from "./types";
 
-type Action = {
-  type: string;
-}
-
-const earnCounting = function (state = 1, action: Action) {
-  switch (action.type) {
-    case "Add": 
-      return state + 1
-    case "Reset": 
-      return 1
-    default:
-      return state;
-  }
-};
-
-let store = createStore(earnCounting);
-
-export default function App() {
+export const App: React.FC = () => {
+  let store = createStore(earnCounting);
 
   return (
     <Provider store={store}>
       <Router>
         <div>
           <Switch>
-            <Route exact path="/">
+            <Route exact path={ROUTES.HOME}>
               <StartPage />
             </Route>
-            <Route path="/game">
-              <ContainerGame/>
+            <Route path={ROUTES.GAME}>
+              <ContainerGame />
             </Route>
-            <Route path="/over">
+            <Route path={ROUTES.GAME_OVER}>
               <ContainerOver />
             </Route>
           </Switch>

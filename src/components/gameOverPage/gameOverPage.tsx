@@ -2,25 +2,21 @@ import React, {useCallback} from "react";
 import { Button } from "../ui/button/button";
 import config from '../../config.json'
 import { useHistory } from "react-router-dom";
+import { ROUTES } from "../../types";
 
-type Props = {
+type GameOverPageProps = {
     round: number;
     restartGame: () => void;
 }
 
-export const GameOverPage: React.FC<Props> = ({round, restartGame}) => {
-    const onRestartGame = useCallback(() => {
-        restartGame();
-    }, [restartGame]);
+export const GameOverPage: React.FC<GameOverPageProps> = ({round, restartGame}) => {
     const prize = round > 1 ? config.prizes[round - 2] : '$0'
-
     const history = useHistory();
 
-    const onClick = () => {
-        onRestartGame();
-        history.push('/');
-    }
-    console.log(round, config.prizes, round - 2, config.prizes[round - 2])
+    const onClick = useCallback(() => {
+        restartGame();
+        history.push(ROUTES.HOME);
+    }, [restartGame, history]);
 
     return(
         <div className='start'>

@@ -6,43 +6,49 @@ import classNames from "classnames";
 import { useHistory } from "react-router-dom";
 
 import './gamePage.css'
+import { ROUTES } from "../../types";
 
-type Props = {
+type GamePageProps = {
     onNextRound : () => void,
     round: number
 }
 
-export const GamePage: React.FC<Props> = ({round, onNextRound}) => {
+export const GamePage: React.FC<GamePageProps> = ({round, onNextRound}) => {
+    const {questions} = config;
     const history = useHistory();
-    
-    const handleOnNextRound = useCallback(() => {
-        onNextRound();
-    }, [onNextRound]);
+    const question = questions.find(item => item.id === String(round)) ??
+        questions[questions.length - 1]
 
     const [showQuestion, setShowQuestion] = useState(true);
 
-    const handleBurger = () => {
+    const handleBurger = useCallback(() => {
         setShowQuestion(!showQuestion)
-    }
+    }, [showQuestion, setShowQuestion]);
 
-    const onAnswer = (result: boolean) => {
+    const onAnswer = useCallback((result: boolean) => {
         if (result) {
-            handleOnNextRound();
-            console.log(round)
+            onNextRound();
             if (round >= config.questions.length) {
-                history.push('/over');
+                history.push(ROUTES.GAME_OVER);
             }
         } else {
-            history.push('/over');
+            history.push(ROUTES.GAME_OVER);
         }
-    }
+    }, [history, onNextRound, round]);
     
     return (
         <div className={classNames('game', 'max-width', {'show-question': showQuestion}, {'show-prizes': !showQuestion})}>
             <div className='burger' onClick={handleBurger}>
-                {showQuestion ? <img src='./burger.svg' alt='burger' /> : <img src='./cross.svg' alt='cross' />}
+                {
+                    showQuestion ? 
+                        <img src='./burger.svg' alt='burger' /> : 
+                        <img src='./cross.svg' alt='cross' />
+                }
             </div>
-            <Question question={config.questions.find(question=>question.id === round.toString()) || config.questions[config.questions.length - 1]} onAnswer={onAnswer}/>
+            <Question 
+                question={question} 
+                onAnswer={onAnswer}
+            />
             <Prizes currentQuestion={round}/>
         </div>
     )

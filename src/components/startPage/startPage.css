@@ -1,4 +1,4 @@
-.start{
+.start {
     color: var(--orange120);
     position: relative;
     height: 100vh;
@@ -43,7 +43,7 @@
     margin-top: 31vh;
 }
 
-.start-bottom{
+.start-bottom {
     clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%);
     background-color: var(--orange5);
     position: absolute;
@@ -54,7 +54,7 @@
     z-index: 0;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
     .start__content {
         flex-direction: column;
         align-items: center;

@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
+import { ACTION } from '../../store';
 import  { GamePage }  from './gamePage';
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    onNextRound: () => dispatch({ type: 'Add' }),
-  }
-};
+const mapDispatchToProps = (dispatch: any) => ({
+    onNextRound: () => dispatch({ type: ACTION.ADD }),
+});
 
 const mapStateToProps = (state: number) => {
     return {

@@ -10,7 +10,7 @@ export type OptionType = {
     option: string;
 }
 
-type Props = {
+type QuestionProps = {
     question: {
         id: string;
         question: string;
@@ -19,55 +19,69 @@ type Props = {
     onAnswer: (result: boolean) => void;
 }
 
-export const Question : React.FC<Props> = ({question, onAnswer}) => {
-    const [selected, setSelected] = useState<string | null>(null);
-    const [status, setStatus] = useState('-inactive');
+enum OPTION_STATUS {
+    INACTIVE = 'inactive',
+    SELECTED = 'selected',
+    WRONG = 'wrong',
+    CORRECT = 'correct'
+}
 
-    const handleOnAnswer = useCallback((arg) => {
-        onAnswer(arg);
-    }, [onAnswer]);
+export const Question : React.FC<QuestionProps> = ({question, onAnswer}) => {
+    const [selected, setSelected] = useState<string | null>(null);
+    const [status, setStatus] = useState(OPTION_STATUS.INACTIVE);
+    const answer = config.answers.find(item => item.id === question?.id);
 
     useEffect(() => {
         if (selected === null) {
             return;
         }
         
-        let timer: any;
-        let secondTimer: any;
-        if (status === 'selected') {
-            timer = setTimeout(() => {
-                const answer = config.answers.find(item => item.id === question?.id);
-                        if (answer?.answer.includes(selected)) {
-                            setStatus('correct')
-                        } else {
-                            setStatus('wrong')
-                        }
+        let selectedTimeout: any;
+        let correctOrWrongTimeout: any;
+
+        if (status === OPTION_STATUS.SELECTED) {
+            selectedTimeout = setTimeout(() => {
+                if (answer?.answer.includes(selected)) {
+                    setStatus(OPTION_STATUS.CORRECT);
+                } else {
+                    setStatus(OPTION_STATUS.WRONG);
+                }
             }, 1000);
         }
 
-        if (status === 'correct' || status === 'wrong') {
-            secondTimer = setTimeout(()=>{
-                handleOnAnswer(status==='correct');
+        if (status === OPTION_STATUS.CORRECT || status === OPTION_STATUS.WRONG) {
+            correctOrWrongTimeout = setTimeout(()=>{
+                onAnswer(status === OPTION_STATUS.CORRECT);
                 setSelected(null);
-                setStatus('inactive');
-            },2000);
+                setStatus(OPTION_STATUS.INACTIVE);
+            }, 2000);
         }
-        return () => {
-            clearTimeout(timer)
-            clearTimeout(secondTimer)
-        };
-      }, [selected, status, handleOnAnswer, question]);
 
-    const onClick = (id: string) => {
+        return () => {
+            clearTimeout(selectedTimeout);
+            clearTimeout(correctOrWrongTimeout);
+        };
+    }, [selected, status, onAnswer, question, answer]);
+
+    const onClick = useCallback((id: string) => {
         setSelected(id);
-        setStatus('selected');
-    };
+        setStatus(OPTION_STATUS.SELECTED);
+    }, []);
 
     return(
         <div className='question-field'>
             <div className='question-field__question question'>{question!.question}</div>
             <div className='question-field__options'>
-                {question!.options.map(option=>(<Option option={option} onClick={onClick} selected={selected} status={status} key={option.id}/>))}
+                {question!.options
+                    .map(option => (
+                        <Option 
+                            option={option} 
+                            onClick={onClick} 
+                            selected={selected} 
+                            status={status} 
+                            key={option.id}
+                        />
+                    ))}
             </div>
         </div>
     )

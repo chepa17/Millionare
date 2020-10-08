@@ -1,18 +1,26 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import classNames from "classnames";
 import './button.css';
-type Props = {
+
+type ButtonProps = {
     onClick: () => void,
-    children: any,
+    children: React.ReactNode,
 }
 
-export function Button(props: Props) {
+export const Button: React.FC<ButtonProps> = ({children, onClick}) => {
     const [pressed, setPressed] = useState(false);
-    const onClick = () => {
+
+    const handleOnClick = useCallback(() => {
         setPressed(true);
-        props.onClick();
-    }
+        onClick();
+    }, [setPressed, onClick]);
+
     return (
-        <div className={classNames('button', {'pressed': pressed})} onClick={onClick}>{props.children}</div>
+        <div 
+            className={classNames('button', {'pressed': pressed})} 
+            onClick={handleOnClick}
+        >
+            {children}
+        </div>
     )
 }

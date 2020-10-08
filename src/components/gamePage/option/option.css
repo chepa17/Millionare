@@ -1,4 +1,4 @@
-.option-wrapper{
+.option-wrapper {
     position: relative;
     width: 424px;
     height: 72px;
@@ -39,7 +39,7 @@
     background-color: var(--green100);    
 }
 
-.option-wrapper.correct .option{
+.option-wrapper.correct .option {
     background-color: var(--green5);    
 }
 
@@ -47,7 +47,7 @@
     background-color: var(--orange100);    
 }
 
-.option-wrapper.selected .option{
+.option-wrapper.selected .option {
     background-color: var(--orange5);    
 }
 
@@ -55,7 +55,7 @@
     background-color: var(--red100);    
 }
 
-.option-wrapper.wrong .option{
+.option-wrapper.wrong .option {
     background-color: var(--red5);    
 }
 
@@ -65,7 +65,7 @@
     color: var(--orange100);
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
     .option-wrapper {
         width: 100%;
         height: 56px;
