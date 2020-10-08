@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Millionare/static/css/main.caddd313.chunk.css",
-    "main.js": "/Millionare/static/js/main.7c2a2b63.chunk.js",
-    "main.js.map": "/Millionare/static/js/main.7c2a2b63.chunk.js.map",
+    "main.js": "/Millionare/static/js/main.62139e36.chunk.js",
+    "main.js.map": "/Millionare/static/js/main.62139e36.chunk.js.map",
     "runtime-main.js": "/Millionare/static/js/runtime-main.ac18d5d2.js",
     "runtime-main.js.map": "/Millionare/static/js/runtime-main.ac18d5d2.js.map",
     "static/js/2.61d284b6.chunk.js": "/Millionare/static/js/2.61d284b6.chunk.js",
     "static/js/2.61d284b6.chunk.js.map": "/Millionare/static/js/2.61d284b6.chunk.js.map",
     "index.html": "/Millionare/index.html",
-    "precache-manifest.056ae9b37b8b96ca30fd87105a314721.js": "/Millionare/precache-manifest.056ae9b37b8b96ca30fd87105a314721.js",
+    "precache-manifest.23689d3ba5d97b7828755e753c02659d.js": "/Millionare/precache-manifest.23689d3ba5d97b7828755e753c02659d.js",
     "service-worker.js": "/Millionare/service-worker.js",
     "static/css/main.caddd313.chunk.css.map": "/Millionare/static/css/main.caddd313.chunk.css.map",
     "static/js/2.61d284b6.chunk.js.LICENSE.txt": "/Millionare/static/js/2.61d284b6.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.ac18d5d2.js",
     "static/js/2.61d284b6.chunk.js",
     "static/css/main.caddd313.chunk.css",
-    "static/js/main.7c2a2b63.chunk.js"
+    "static/js/main.62139e36.chunk.js"
   ]
 }
