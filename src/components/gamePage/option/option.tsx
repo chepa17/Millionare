@@ -17,7 +17,7 @@ export const Option: React.FC<Props> = ({option, onClick, selected, status}) => 
             return
         }
         onClick(option.id);
-    }, [onClick, option])
+    }, [onClick, option, selected])
 
     return (
         <div className={classNames('option-wrapper', selected === option.id ? status : 'inactive')}>

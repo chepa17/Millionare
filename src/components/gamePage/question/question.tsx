@@ -56,7 +56,7 @@ export const Question : React.FC<Props> = ({question, onAnswer}) => {
             clearTimeout(timer)
             clearTimeout(secondTimer)
         };
-      }, [selected, status]);
+      }, [selected, status, handleOnAnswer, question]);
 
     const onClick = (id: string) => {
         setSelected(id);

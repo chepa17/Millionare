@@ -40,7 +40,7 @@ export const GamePage: React.FC<Props> = ({round, onNextRound}) => {
     return (
         <div className={classNames('game', 'max-width', {'show-question': showQuestion}, {'show-prizes': !showQuestion})}>
             <div className='burger' onClick={handleBurger}>
-                {showQuestion ? <img src='./burger.svg'/> : <img src='./cross.svg'/>}
+                {showQuestion ? <img src='./burger.svg' alt='burger' /> : <img src='./cross.svg' alt='cross' />}
             </div>
             <Question question={config.questions.find(question=>question.id === round.toString()) || config.questions[config.questions.length - 1]} onAnswer={onAnswer}/>
             <Prizes currentQuestion={round}/>
