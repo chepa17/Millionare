@@ -4,11 +4,11 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { StartPage } from "./components/startPage/startPage";
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { ContainerOver } from "./components/gameOverPage/containerOver";
 import { ContainerGame } from "./components/gamePage/containerGame";
+import { StartPage } from "./components/startPage/startPage";
 import { earnCounting } from "./store";
 import { ROUTES } from "./types";
 

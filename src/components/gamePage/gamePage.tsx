@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import config from '../../config.json';
 import { Prizes } from "./prizes/prizes";
 import { Question } from "./question/question";
@@ -10,16 +10,21 @@ import { ROUTES } from "../../types";
 
 type GamePageProps = {
     onNextRound : () => void,
+    restartGame : () => void,
     round: number
 }
 
-export const GamePage: React.FC<GamePageProps> = ({round, onNextRound}) => {
+export const GamePage: React.FC<GamePageProps> = ({round, onNextRound, restartGame}) => {
     const {questions} = config;
     const history = useHistory();
     const question = questions.find(item => item.id === String(round)) ??
         questions[questions.length - 1]
 
     const [showQuestion, setShowQuestion] = useState(true);
+
+    useEffect(() => {
+        restartGame();
+    }, [restartGame])
 
     const handleBurger = useCallback(() => {
         setShowQuestion(!showQuestion)

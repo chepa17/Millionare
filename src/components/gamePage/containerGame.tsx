@@ -4,6 +4,7 @@ import  { GamePage }  from './gamePage';
 
 const mapDispatchToProps = (dispatch: any) => ({
     onNextRound: () => dispatch({ type: ACTION.ADD }),
+    restartGame: () => dispatch({ type: ACTION.RESET })
 });
 
 const mapStateToProps = (state: number) => {

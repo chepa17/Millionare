@@ -4,7 +4,7 @@ import { ROUTES } from "../../types";
 import { Button } from "../ui/button/button";
 import './startPage.css';
 
-export const StartPage : React.FC<{}> = () => {
+export const StartPage : React.FC = () => {
     const history = useHistory();
 
     const onNextStep = useCallback(() => {
