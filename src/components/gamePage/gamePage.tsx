@@ -37,7 +37,9 @@ export const GamePage: React.FC<GamePageProps> = ({round, onNextRound}) => {
     }, [history, onNextRound, round]);
     
     return (
-        <div className={classNames('game', 'max-width', {'show-question': showQuestion}, {'show-prizes': !showQuestion})}>
+        <div className='game-wrapper'>
+            <div className='game-wrapper__left'/>
+            <div className={classNames('game', 'max-width', {'show-question': showQuestion}, {'show-prizes': !showQuestion})}>
             <div className='burger' onClick={handleBurger}>
                 {
                     showQuestion ? 
@@ -51,5 +53,7 @@ export const GamePage: React.FC<GamePageProps> = ({round, onNextRound}) => {
             />
             <Prizes currentQuestion={round}/>
         </div>
+        </div>
+        
     )
 }

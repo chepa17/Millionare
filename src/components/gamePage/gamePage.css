@@ -1,3 +1,21 @@
+.game-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.game-wrapper__left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    background-color: #E5E5E5;
+}
+
 .game {
     display: flex;
     position: absolute;
@@ -6,6 +24,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
+    z-index: 2;
 }
 
 .max-width {
