@@ -19,9 +19,9 @@ export const StartPage : React.FC = () => {
                     <img src='./hand1.png' alt='hand'/>
                 </div>
                 <div className='start__right'>
-                    <div className='headline'>
+                    <h1 className='headline'>
                         Who wants to be a millionaire?
-                    </div>
+                    </h1>
                     <Button onClick={onNextStep}>Start</Button>
                 </div>
             </div>

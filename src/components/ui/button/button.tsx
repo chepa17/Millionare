@@ -16,11 +16,11 @@ export const Button: React.FC<ButtonProps> = ({children, onClick}) => {
     }, [setPressed, onClick]);
 
     return (
-        <div 
+        <button type='button' 
             className={classNames('button', {'pressed': pressed})} 
             onClick={handleOnClick}
         >
             {children}
-        </div>
+        </button>
     )
 }
